@@ -91,9 +91,11 @@ fun weatherMessage(data: Data) = DiscordWebhookMessage(
         DiscordEmbed(
             "Weather Report",
             """
-                **Temperature:** ${data.temperature} °C
-                **Air Pressure:** ${data.pressure} Pa
-                **Light Level:** ${data.lightLevel} Lux
+                ```kt
+                ${"Temperature:".padEnd(24)} ${data.temperature.toString().padEnd(8)} °C
+                ${"Air Pressure:".padEnd(24)} ${data.pressure.toString().padEnd(8)} Pa
+                ${"Light Level:".padEnd(24)} ${data.lightLevel.toString().padEnd(8)} Lux
+                ```
             """.trimIndent(),
             0x57965c,
             Instant.now().toString()
